@@ -98,6 +98,7 @@ class HomeView extends StatelessWidget {
                   height: 10.0,
                 ),
                 ButtonWidget(
+                  onClick: () {},
                   title: 'Login',
                   hasBorder: false,
                 ),
@@ -105,6 +106,7 @@ class HomeView extends StatelessWidget {
                   height: 10.0,
                 ),
                 ButtonWidget(
+                  onClick: () {},
                   title: 'Sign Up',
                   hasBorder: true,
                 ),

@@ -4,12 +4,13 @@ import 'package:mobclinic/global/globals.dart';
 class ButtonWidget extends StatelessWidget {
   final String title;
   final bool hasBorder;
+  final Function onClick;
 
   const ButtonWidget({
-    Key key,
+    @required this.onClick,
     this.title,
     this.hasBorder,
-  }) : super(key: key);
+  });
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -25,6 +26,7 @@ class ButtonWidget extends StatelessWidget {
               : Border.fromBorderSide(BorderSide.none),
         ),
         child: InkWell(
+          onTap: onClick,
           borderRadius: BorderRadius.circular(10),
           child: Container(
             height: 60.0,
