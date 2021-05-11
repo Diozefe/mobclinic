@@ -6,6 +6,7 @@ import 'package:mobclinic/components/textfield_widget.dart';
 import 'package:mobclinic/components/button_widget.dart';
 import 'package:mobclinic/components/wave_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:shadow/shadow.dart';
 
 class HomeView extends StatelessWidget {
   @override
@@ -32,18 +33,21 @@ class HomeView extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 70),
+            padding: const EdgeInsets.only(top: 50),
             child: Row(
               /*COLOCAR LOGO*/
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset(
-                    'images/logo_mobclinic.png',
-                    scale: 6,
+                Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'images/logo_mobclinic.png',
+                      scale: 6,
+                    ),
                   ),
                 ),
+
                 /* Text(
                   'Login',
                   style: TextStyle(

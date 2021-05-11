@@ -13,11 +13,17 @@ class HomeModel extends ChangeNotifier {
   get isValid => _isValid;
   bool _isValid = false;
   void isValidEmail(String input) {
-    if (input == Global.validEmail.first) {
+    if (_checkEmail(input)) {
       _isValid = true;
     } else {
       _isValid = false;
     }
     notifyListeners();
   }
+}
+
+bool _checkEmail(String email) {
+  return RegExp(
+          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+      .hasMatch(email);
 }
