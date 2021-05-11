@@ -6,12 +6,13 @@ import 'package:mobclinic/components/textfield_widget.dart';
 import 'package:mobclinic/components/button_widget.dart';
 import 'package:mobclinic/components/wave_widget.dart';
 import 'package:provider/provider.dart';
-import 'package:shadow/shadow.dart';
 
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    /**---------------PEGGANDO PROVIDER----------------- */
     final model = Provider.of<HomeModel>(context);
+    /**------------------------------------------------- */
     final size = MediaQuery.of(context).size;
     final bool keyBoardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
     return Scaffold(

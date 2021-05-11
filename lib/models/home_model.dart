@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobclinic/global/globals.dart';
 import 'package:flutter/widgets.dart';
 
 class HomeModel extends ChangeNotifier {

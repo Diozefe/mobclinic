@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mobclinic/models/home_model.dart';
+import 'package:mobclinic/views/dashboard/home.dart';
 import 'package:mobclinic/views/login/homeview.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.light,
+    ),
+  );
   runApp(MobClinic());
 }
 
@@ -20,7 +27,7 @@ class MobClinic extends StatelessWidget {
               buttonColor: Colors.blueAccent[500],
               textTheme: ButtonTextTheme.accent),
         ),
-        home: HomeView(),
+        home: DashboardHome(),
       ),
     );
   }
