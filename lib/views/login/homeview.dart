@@ -66,6 +66,7 @@ class HomeView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextFieldWidget(
+                  keyboardType: TextInputType.emailAddress,
                   hintText: 'Email',
                   obscureText: false,
                   prefixIconData: Icons.mail_outline,

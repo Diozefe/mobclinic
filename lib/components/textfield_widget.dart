@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mobclinic/global/globals.dart';
 import 'package:mobclinic/models/home_model.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +10,7 @@ class TextFieldWidget extends StatelessWidget {
   final IconData sufifxIconData;
   final bool obscureText;
   final Function onChanged;
+  final TextInputType keyboardType;
 
   const TextFieldWidget({
     Key key,
@@ -17,12 +19,14 @@ class TextFieldWidget extends StatelessWidget {
     this.sufifxIconData,
     this.obscureText,
     this.onChanged,
+    this.keyboardType,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<HomeModel>(context);
 
     return TextField(
+      keyboardType: keyboardType,
       onChanged: onChanged,
       obscureText: obscureText,
       style: TextStyle(

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobclinic/models/home_model.dart';
-import 'package:mobclinic/views/dashboard/home.dart';
-import 'package:mobclinic/views/login/homeview.dart';
+import 'package:mobclinic/views/dashboard/dashboard.dart';
 import 'package:provider/provider.dart';
 
 void main() {
