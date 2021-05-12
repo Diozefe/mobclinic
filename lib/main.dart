@@ -20,7 +20,9 @@ class MobClinic extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => HomeModel(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          brightness: Brightness.light,
           primaryColor: Colors.blue[700],
           accentColor: Colors.blue[300],
           buttonTheme: ButtonThemeData(

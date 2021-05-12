@@ -26,7 +26,6 @@ class DashboardHome extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavBar(),
     );
   }
 }
