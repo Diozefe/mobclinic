@@ -26,8 +26,4 @@ class DashboardHome extends StatelessWidget {
       ]),
     );
   }
-
-  Widget modifyBody(Widget widget) {
-    return widget;
-  }
 }
