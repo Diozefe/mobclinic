@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mobclinic/components/dashboard/icons.dart';
 import 'package:mobclinic/components/icons/myicons.dart';
+import 'package:mobclinic/models/dashboard_model.dart';
+import 'package:provider/provider.dart';
 
 class AppBarDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final modelDash = Provider.of<DashboardModel>(context);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -14,9 +17,18 @@ class AppBarDashboard extends StatelessWidget {
           width: MediaQuery.of(context).size.width / 2,
           child: Row(
             children: [
-              IconAppBar(
-                onClick: () {},
-                icon: Icons.list,
+              GestureDetector(
+                onTap: () {
+                  modelDash.isModify(false);
+                },
+                onDoubleTap: () {
+                  modelDash.isModify(true);
+                },
+                child: IconAppBar(
+                  icon:
+                      modelDash.getIsModified() ? Icons.list : Icons.grid_view,
+                  height: 50,
+                ),
               ),
             ],
           ),
@@ -28,15 +40,18 @@ class AppBarDashboard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconAppBar(
-                onClick: () {},
                 iconSvg: bell,
-                right: 8,
+                width: 50,
+                height: 60,
+                left: 12,
+                right: 12,
               ),
               IconAppBar(
-                onClick: () {},
                 iconSvg: user,
-                height: 50,
-                width: 60,
+                height: 60,
+                width: 50,
+                right: 16,
+                left: 6,
               ),
             ],
           ),
