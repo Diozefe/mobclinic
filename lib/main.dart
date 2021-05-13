@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobclinic/models/home_model.dart';
 import 'package:mobclinic/views/dashboard/dashboard.dart';
+import 'package:mobclinic/views/preservice/preservice.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -16,8 +17,12 @@ void main() {
 class MobClinic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => HomeModel(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => HomeModel(),
+        )
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
@@ -25,8 +30,9 @@ class MobClinic extends StatelessWidget {
           primaryColor: Colors.blue[700],
           accentColor: Colors.blue[300],
           buttonTheme: ButtonThemeData(
-              buttonColor: Colors.blueAccent[500],
-              textTheme: ButtonTextTheme.accent),
+            buttonColor: Colors.blueAccent[500],
+            textTheme: ButtonTextTheme.accent,
+          ),
         ),
         home: DashboardHome(),
       ),
