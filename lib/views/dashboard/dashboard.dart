@@ -21,9 +21,10 @@ class DashboardHome extends StatelessWidget {
         ],
         iconTheme: IconThemeData(color: Global.mediumBlue),
       ),
-      body: Stack(children: [
-        modelDash.getIsModified() ? BodySquad() : BodyList(),
-      ]),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        child: modelDash.getIsModified() ? BodySquad() : BodyList(),
+      ),
     );
   }
 }

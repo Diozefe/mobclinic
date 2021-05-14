@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class BodySquad extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        HeadDashboard(),
-        ListView(shrinkWrap: true, children: [
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          HeadDashboard(),
           Container(
             child: Padding(
               padding: const EdgeInsets.only(top: 40),
@@ -59,8 +59,8 @@ class BodySquad extends StatelessWidget {
               ),
             ),
           ),
-        ])
-      ],
+        ],
+      ),
     );
   }
 }
@@ -69,22 +69,24 @@ class HeadDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Row(
-        children: [
-          Container(
-            height: 30,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Text(
-                'Olá, Felipe Haussler',
-                style: TextStyle(
-                    fontSize: 24,
-                    fontFamily: 'Barlow',
-                    fontWeight: FontWeight.w600),
+      Container(
+        child: Row(
+          children: [
+            Container(
+              height: 30,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: Text(
+                  'Olá, Felipe Haussler',
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontFamily: 'Barlow',
+                      fontWeight: FontWeight.w600),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       Container(
         child: Padding(
