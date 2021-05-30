@@ -2,14 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobclinic/models/dashboard_model.dart';
 import 'package:mobclinic/models/home_model.dart';
-import 'package:mobclinic/views/dashboard/dashboard.dart';
-<<<<<<< HEAD
-import 'package:mobclinic/views/login/homeview.dart';
 import 'package:mobclinic/views/login/login.dart';
-import 'package:mobclinic/views/preservice/preservice.dart';
-=======
-import 'package:mobclinic/views/preservice/calendar_services.dart';
->>>>>>> acda45138b2724088ceb3c91519260487213cbb4
 import 'package:provider/provider.dart';
 
 void main() {
