@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobclinic/models/home_model.dart';
 import 'package:mobclinic/views/dashboard/dashboard.dart';
+import 'package:mobclinic/views/login/homeview.dart';
+import 'package:mobclinic/views/login/login.dart';
 import 'package:mobclinic/views/preservice/preservice.dart';
 import 'package:provider/provider.dart';
 
@@ -34,7 +36,7 @@ class MobClinic extends StatelessWidget {
             textTheme: ButtonTextTheme.accent,
           ),
         ),
-        home: DashboardHome(),
+        home: Login(),
       ),
     );
   }
