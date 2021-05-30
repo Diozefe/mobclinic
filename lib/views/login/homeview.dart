@@ -19,45 +19,33 @@ class HomeView extends StatelessWidget {
       backgroundColor: Global.white,
       body: Stack(
         children: [
-          Container(
-            height: size.height - 200,
-            color: Global.mediumBlue,
-          ),
           AnimatedPositioned(
             duration: Duration(milliseconds: 400),
             curve: Curves.easeInOutQuad,
             top: keyBoardOpen ? -size.height / 3.7 : 0.0,
-            child: WaveWidget(
-              size: size,
-              yOffset: size.height / 3.0,
-              color: Global.white,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: Row(
-              /*COLOCAR LOGO*/
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset(
-                      'images/logo_mobclinic.png',
-                      scale: 6,
+            child: Container(
+              // height: size.height / 3,
+              color: Global.mediumBlue,
+              width: size.width,
+              height: keyBoardOpen ? 200 : (size.height / 2),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 0),
+                child: Row(
+                  /*COLOCAR LOGO*/
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          'images/logo_mobclinic.png',
+                          scale: 6,
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-
-                /* Text(
-                  'Login',
-                  style: TextStyle(
-                    color: Global.white,
-                    fontSize: 40.0,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ), */
-              ],
+              ),
             ),
           ),
           Padding(
@@ -92,11 +80,27 @@ class HomeView extends StatelessWidget {
                     SizedBox(
                       height: 10.0,
                     ),
-                    Text(
-                      'Esqueceu a senha?',
-                      style: TextStyle(
-                        color: Global.mediumBlue,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Checkbox(value: false, onChanged: (value) {}),
+                            Text(
+                              'Lembre de mim',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          'Esqueceu a senha?',
+                          style: TextStyle(
+                            color: Global.mediumBlue,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
