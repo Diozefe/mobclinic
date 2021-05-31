@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobclinic/components/button.dart';
+import 'package:mobclinic/components/forms/textInputLabel.dart';
 import 'package:mobclinic/components/textfield_widget.dart';
 import 'package:mobclinic/global/globals.dart';
 import 'package:mobclinic/models/event_model.dart';
@@ -60,7 +61,7 @@ class Login extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 50, bottom: 11),
-                    child: TitleLabelText(
+                    child: TextInputLabel(
                       text: 'Email',
                       fontSize: 12,
                     ),
@@ -76,7 +77,7 @@ class Login extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 20, bottom: 11),
-                    child: TitleLabelText(
+                    child: TextInputLabel(
                       text: 'Senha',
                       fontSize: 12,
                     ),
@@ -98,12 +99,15 @@ class Login extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 20),
-                        child: Text(
-                          'Esqueceu sua senha?',
-                          style: TextStyle(
-                            color: Global.black,
-                            fontFamily: 'Lato-Regular',
-                            fontWeight: FontWeight.w600,
+                        child: InkWell(
+                          onTap: () {},
+                          child: Text(
+                            'Esqueceu sua senha?',
+                            style: TextStyle(
+                              color: Global.black,
+                              fontFamily: 'Lato-Regular',
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       )
@@ -129,23 +133,6 @@ class Login extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class TitleLabelText extends StatelessWidget {
-  final String text;
-  final double fontSize;
-  const TitleLabelText({Key key, this.text, this.fontSize}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(
-        color: Global.black,
-        fontFamily: 'Lato-Regular',
-        fontSize: fontSize,
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:mobclinic/models/dashboard_model.dart';
 import 'package:mobclinic/models/event_model.dart';
 import 'package:mobclinic/views/login/login.dart';
+import 'package:mobclinic/views/register/register.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -37,7 +38,7 @@ class MobClinic extends StatelessWidget {
             textTheme: ButtonTextTheme.accent,
           ),
         ),
-        home: Login(),
+        home: Regiter(),
       ),
     );
   }
