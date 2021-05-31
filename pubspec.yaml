@@ -67,6 +67,10 @@ flutter:
      - family: Barlow
        fonts:
          - asset: fonts/Barlow-SemiBold.ttf
+         - asset: fonts/Inter-VariableFont.ttf
+         - asset: fonts/Lato-Regular.ttf
+
+
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

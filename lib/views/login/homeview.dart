@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobclinic/global/globals.dart';
-import 'package:mobclinic/models/home_model.dart';
+import 'package:mobclinic/models/event_model.dart';
 import 'package:mobclinic/components/textfield_widget.dart';
 import 'package:mobclinic/components/button_widget.dart';
-import 'package:mobclinic/components/wave_widget.dart';
 import 'package:provider/provider.dart';
 
 class HomeView extends StatelessWidget {

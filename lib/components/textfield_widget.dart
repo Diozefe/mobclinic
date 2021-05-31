@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobclinic/global/globals.dart';
-import 'package:mobclinic/models/home_model.dart';
+import 'package:mobclinic/models/event_model.dart';
 import 'package:provider/provider.dart';
 
 class TextFieldWidget extends StatelessWidget {
@@ -11,6 +11,7 @@ class TextFieldWidget extends StatelessWidget {
   final bool obscureText;
   final Function onChanged;
   final TextInputType keyboardType;
+  final Color labelStyleColor;
 
   const TextFieldWidget({
     Key key,
@@ -20,6 +21,7 @@ class TextFieldWidget extends StatelessWidget {
     this.obscureText,
     this.onChanged,
     this.keyboardType,
+    this.labelStyleColor,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -30,16 +32,16 @@ class TextFieldWidget extends StatelessWidget {
       onChanged: onChanged,
       obscureText: obscureText,
       style: TextStyle(
-        color: Global.mediumBlue,
+        color: Global.black,
         fontSize: 14.0,
       ),
-      cursorColor: Global.mediumBlue,
+      cursorColor: Global.mainBlue,
       decoration: InputDecoration(
           labelText: hintText,
           prefixIcon: Icon(
             prefixIconData,
             size: 18,
-            color: Global.mediumBlue,
+            color: Global.lightBlue,
           ),
           enabledBorder: UnderlineInputBorder(
             borderRadius: BorderRadius.circular(8),
@@ -48,7 +50,7 @@ class TextFieldWidget extends StatelessWidget {
           filled: true,
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: Global.mediumBlue),
+            borderSide: BorderSide(color: Global.lightBlue),
           ),
           suffixIcon: GestureDetector(
             onTap: () {
@@ -57,10 +59,10 @@ class TextFieldWidget extends StatelessWidget {
             child: Icon(
               sufifxIconData,
               size: 18,
-              color: Global.mediumBlue,
+              color: Global.mainBlue,
             ),
           ),
-          labelStyle: TextStyle(color: Global.mediumBlue)),
+          labelStyle: TextStyle(color: labelStyleColor)),
     );
   }
 }

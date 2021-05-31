@@ -5,16 +5,19 @@ import 'package:mobclinic/components/icons/myicons.dart';
 class LogoLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final bool keyboardpress = MediaQuery.of(context).viewInsets.bottom > 0;
+    final double heightBox = (MediaQuery.of(context).size.height / 4) - 40;
     return Padding(
       padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
       child: Container(
-        height: MediaQuery.of(context).size.height / 4,
-        width: double.infinity,
+        height: keyboardpress ? 0.0 : heightBox,
+        width: size.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
-              padding: const EdgeInsets.only(bottom: 20),
+              padding: EdgeInsets.only(bottom: 20),
               child: SvgPicture.asset(
                 iconLogo,
                 height: 40,

@@ -19,6 +19,13 @@ class HomeModel extends ChangeNotifier {
     }
     notifyListeners();
   }
+
+  get isFocus => _isFocused;
+  bool _isFocused = false;
+  set isFocus(value) {
+    _isFocused = value;
+    notifyListeners();
+  }
 }
 
 bool _checkEmail(String email) {
