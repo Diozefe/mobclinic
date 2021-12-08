@@ -4,10 +4,10 @@ import 'package:mobclinic/components/icons/myicons.dart';
 import 'package:mobclinic/models/dashboard_model.dart';
 import 'package:provider/provider.dart';
 
-class AppBarDashboard extends StatelessWidget {
+class AppBarHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final modelDash = Provider.of<DashboardModel>(context);
+    final modelDash = Provider.of<Dashboard>(context);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -19,14 +19,13 @@ class AppBarDashboard extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  modelDash.isModify(false);
+                  modelDash.isModify = false;
                 },
                 onDoubleTap: () {
-                  modelDash.isModify(true);
+                  modelDash.isModify = false;
                 },
                 child: IconAppBar(
-                  icon:
-                      modelDash.getIsModified() ? Icons.list : Icons.grid_view,
+                  icon: Icons.list,
                   height: 50,
                 ),
               ),
@@ -45,13 +44,6 @@ class AppBarDashboard extends StatelessWidget {
                 height: 60,
                 left: 12,
                 right: 12,
-              ),
-              IconAppBar(
-                iconSvg: user,
-                height: 60,
-                width: 50,
-                right: 16,
-                left: 6,
               ),
             ],
           ),

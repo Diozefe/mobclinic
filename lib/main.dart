@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mobclinic/models/dashboard_model.dart';
-import 'package:mobclinic/models/event_model.dart';
-import 'package:mobclinic/views/login/login.dart';
-import 'package:mobclinic/views/register/register.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:mobclinic/screens/start/start.dart';
+import 'global/global_colors.dart';
+import 'models/dashboard_model.dart';
+import 'models/event_model.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarBrightness: Brightness.light,
+      statusBarColor: Global.primary_color,
     ),
   );
-  runApp(MobClinic());
+  initializeDateFormatting().then((_) => runApp(MobClinic()));
 }
 
 class MobClinic extends StatelessWidget {
@@ -21,10 +23,10 @@ class MobClinic extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => HomeModel(),
+          create: (context) => Home(),
         ),
         ChangeNotifierProvider(
-          create: (context) => DashboardModel(),
+          create: (context) => Dashboard(),
         ),
       ],
       child: MaterialApp(
@@ -38,7 +40,7 @@ class MobClinic extends StatelessWidget {
             textTheme: ButtonTextTheme.accent,
           ),
         ),
-        home: Regiter(),
+        home: StartScrenn(),
       ),
     );
   }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 
-class HomeModel extends ChangeNotifier {
+class Home extends ChangeNotifier {
   get isVisible => _isVisible;
   bool _isVisible = false;
   set isVisible(value) {
@@ -24,6 +25,22 @@ class HomeModel extends ChangeNotifier {
   bool _isFocused = false;
   set isFocus(value) {
     _isFocused = value;
+    notifyListeners();
+  }
+
+  String _textRigth = DateFormat.MMMM('pt_BR')
+      .format(DateTime.utc(DateTime.now().year, DateTime.now().month + 1));
+  String _leftMonth = 'Mês';
+  String get leftMonth => _leftMonth;
+  set leftMonth(String value) {
+    _leftMonth = value;
+    notifyListeners();
+  }
+
+  String _rigthMonth = '_textRigth';
+  String get rigthMonth => _rigthMonth;
+  set rigthMonth(String value) {
+    _rigthMonth = value;
     notifyListeners();
   }
 }

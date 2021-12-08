@@ -4,7 +4,7 @@ class ClipperWidget extends CustomClipper<Path> {
   final List<Offset> waveList;
 
   ClipperWidget({
-    this.waveList,
+    required this.waveList,
   });
 
   @override

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mobclinic/global/globals.dart';
+import 'package:mobclinic/global/global_colors.dart';
 
 class IconAppBar extends StatelessWidget {
-  final IconData icon;
-  final String iconSvg;
-  final double height;
-  final double width;
+  final IconData? icon;
+  final String? iconSvg;
+  final double? height;
+  final double? width;
   final double left;
   final double right;
 
   const IconAppBar({
-    Key key,
+    Key? key,
     this.icon,
     this.iconSvg,
     this.height,
@@ -35,7 +35,7 @@ class IconAppBar extends StatelessWidget {
                   color: Global.mediumBlue,
                 )
               : SvgPicture.asset(
-                  iconSvg,
+                  iconSvg!,
                   color: Global.mediumBlue,
                 ),
         ),
