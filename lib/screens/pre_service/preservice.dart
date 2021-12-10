@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:mobclinic/components/cards/cardProcedures_widget.dart';
-import 'package:mobclinic/components/laft_moth_widget.dart';
-import 'package:mobclinic/components/text/text-title_screen.dart';
+import 'package:mobclinic/components/text/text_title_screen.dart';
 import 'package:mobclinic/components/text/text_filter.dart';
 import 'package:mobclinic/global/global_colors.dart';
-import 'package:mobclinic/models/event_model.dart';
 import 'package:mobclinic/screens/pre_service/utils.dart';
-import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
+
+import 'create_schedule/create_schedule_scheen.dart';
 
 class PreServiceScreen extends StatefulWidget {
   @override
@@ -23,12 +20,12 @@ class _PreServiceScreenState extends State<PreServiceScreen> {
   DateTime? _selectedDay;
   DateTime? _rangeStart;
   DateTime? _rangeEnd;
-  String _textLeft = DateFormat.MMMM('pt_BR').format(DateTime.utc(
-      DateTime.now().year,
-      DateTime.now().month - 1 <= 0 ? 12 : DateTime.now().month - 1));
-  String _textRigth = DateFormat.MMMM('pt_BR').format(DateTime.utc(
-      DateTime.now().year,
-      DateTime.now().month + 1 > 12 ? 1 : DateTime.now().month + 1));
+  // String _textLeft = DateFormat.MMMM('pt_BR').format(DateTime.utc(
+  //     DateTime.now().year,
+  //     DateTime.now().month - 1 <= 0 ? 12 : DateTime.now().month - 1));
+  // String _textRigth = DateFormat.MMMM('pt_BR').format(DateTime.utc(
+  //     DateTime.now().year,
+  //     DateTime.now().month + 1 > 12 ? 1 : DateTime.now().month + 1));
 
   @override
   void initState() {
@@ -96,7 +93,14 @@ class _PreServiceScreenState extends State<PreServiceScreen> {
           backgroundColor: Global.primary_color,
           foregroundColor: Global.white,
           child: Icon(Icons.add),
-          onPressed: () {}),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CreateScheduleScheen(),
+              ),
+            );
+          }),
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
@@ -134,47 +138,45 @@ class _PreServiceScreenState extends State<PreServiceScreen> {
             onRangeSelected: _onRangeSelected,
             onPageChanged: (focusedDay) {
               //Menor que janeiro
-              if (focusedDay.month - 1 <= 0) {
-                DateTime nDateLeft = DateTime.utc(focusedDay.year, 12);
-                String dateFormated =
-                    DateFormat.MMMM('pt_BR').format(nDateLeft);
-                setState(() {
-                  _textLeft = dateFormated;
-                });
-              }
-              //Maior que desembro
-              if (focusedDay.month + 1 > 12) {
-                DateTime nDateRigth = DateTime.utc(focusedDay.year, 1);
-                String dateFormated =
-                    DateFormat.MMMM('pt_BR').format(nDateRigth);
-                setState(() {
-                  _textRigth = dateFormated;
-                });
-              }
-              if (focusedDay.month - 1 > 0) {
-                DateTime nDateLeft =
-                    DateTime.utc(focusedDay.year, focusedDay.month - 1);
-                String dateFormated =
-                    DateFormat.MMMM('pt_BR').format(nDateLeft);
-                setState(() {
-                  _textLeft = dateFormated;
-                });
-              }
-              if (focusedDay.month + 1 <= 12) {
-                DateTime nDateRigth =
-                    DateTime.utc(focusedDay.year, focusedDay.month + 1);
-                String dateFormated =
-                    DateFormat.MMMM('pt_BR').format(nDateRigth);
-                setState(() {
-                  _textRigth = dateFormated;
-                });
-              }
+              // int monthObserver = focusedDay.month;
+
+              // //Maior que desembro
+              // if ((monthObserver + 1 <= 12) && (monthObserver - 1 > 0)) {
+              //   DateTime nDateR =
+              //       DateTime.utc(focusedDay.year, focusedDay.month + 1);
+              //   DateTime nDateL =
+              //       DateTime.utc(focusedDay.year, focusedDay.month - 1);
+
+              //   String dateFormatedL = DateFormat.MMMM('pt_BR').format(nDateL);
+              //   String dateFormatedR = DateFormat.MMMM('pt_BR').format(nDateR);
+              //   setState(() {
+              //     _textRigth = dateFormatedR;
+              //     _textRigth = dateFormatedL;
+              //   });
+              // }
+
+              // if (monthObserver + 1 > 12) {
+              //   DateTime nDateRigth = DateTime.utc(focusedDay.year, 1);
+              //   String dateFormated =
+              //       DateFormat.MMMM('pt_BR').format(nDateRigth);
+              //   setState(() {
+              //     _textRigth = dateFormated;
+              //   });
+              // }
+              // if (monthObserver - 1 <= 0) {
+              //   DateTime nDateLeft = DateTime.utc(focusedDay.year, 12);
+              //   String dateFormated =
+              //       DateFormat.MMMM('pt_BR').format(nDateLeft);
+              //   setState(() {
+              //     _textLeft = dateFormated;
+              //   });
+              // }
 
               _focusedDay = focusedDay;
             },
             headerStyle: HeaderStyle(
-              leftChevronIcon: Text(_textLeft),
-              rightChevronIcon: Text(_textRigth),
+              // leftChevronIcon: Text(_textLeft),
+              // rightChevronIcon: Text(_textRigth),
               titleCentered: true,
               formatButtonVisible: false,
               titleTextFormatter: (date, locale) {
@@ -289,6 +291,7 @@ class _PreServiceScreenState extends State<PreServiceScreen> {
                                     Icon(
                                       Icons.query_builder_sharp,
                                       size: 16,
+                                      color: Global.icons_off_color,
                                     ),
                                     Text(' 60min'),
                                   ],

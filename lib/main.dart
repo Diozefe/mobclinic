@@ -32,6 +32,10 @@ class MobClinic extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          iconTheme: IconThemeData(
+            color: Global.primary_color,
+          ),
+          backgroundColor: Global.white,
           brightness: Brightness.light,
           primaryColor: Colors.blue[700],
           accentColor: Colors.blue[300],

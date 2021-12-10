@@ -5,10 +5,13 @@ class Global {
   static const Color primary_color = const Color(0xff2F80ED);
   static const Color secundary_color = const Color(0xff0080FF);
   static const Color icons_primary_color = const Color(0xff333333);
+  static const Color icons_off_color = const Color(0xff828282);
   static const Color disabled_color = const Color(0xffE0E0E0);
   static const Color text_primary_color = const Color(0xff333333);
   static const Color text_secundary_color = const Color(0xff4F4F4F);
   static const Color text_white_color = const Color(0xffffffff);
+  static const Color input_off_color = const Color(0xff828282);
+  static const Color input_primary_color = const Color(0xff2F80ED);
   static const Color status_card_pending = const Color(0xffF2C94C);
   static const Color card_pending = const Color(0xffFFF9E5);
   static const Color procedure_color_corporal = const Color(0xffFFD6B8);
