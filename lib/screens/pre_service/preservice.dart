@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:mobclinic/components/cards/cardProcedures_widget.dart';
 import 'package:mobclinic/components/laft_moth_widget.dart';
 import 'package:mobclinic/components/text/text-title_screen.dart';
 import 'package:mobclinic/components/text/text_filter.dart';
@@ -91,6 +92,11 @@ class _PreServiceScreenState extends State<PreServiceScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Global.white,
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Global.primary_color,
+          foregroundColor: Global.white,
+          child: Icon(Icons.add),
+          onPressed: () {}),
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
@@ -216,32 +222,134 @@ class _PreServiceScreenState extends State<PreServiceScreen> {
           ),
           const SizedBox(height: 22),
           Expanded(
-              child: ValueListenableBuilder<List<Event>>(
-            valueListenable: _selectedEvents,
-            builder: (context, value, _) {
-              return Padding(
-                padding: EdgeInsets.only(left: 12, right: 12),
-                child: ListView.builder(
-                    itemCount: value.length,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 12.0,
-                          vertical: 4.0,
+            child: ListView.builder(
+              itemCount: _selectedEvents.value.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.only(left: 18, right: 18),
+                  child: Card(
+                    shape: BorderDirectional(
+                      start: BorderSide(
+                        width: 7,
+                        color: Global.status_card_pending,
+                      ),
+                    ),
+                    semanticContainer: false,
+                    color: Global.card_pending,
+                    borderOnForeground: true,
+                    child: ListTile(
+                      horizontalTitleGap: 0,
+                      minLeadingWidth: 0,
+                      minVerticalPadding: 0,
+                      contentPadding: EdgeInsets.only(left: 7),
+                      trailing: Padding(
+                        padding: EdgeInsets.only(right: 4),
+                        child: PopupMenuButton(
+                          padding: EdgeInsets.zero,
+                          icon: Icon(Icons.more_vert_sharp),
+                          itemBuilder: (BuildContext context) =>
+                              <PopupMenuEntry>[
+                            PopupMenuItem(
+                              child: ListTile(
+                                contentPadding: EdgeInsets.zero,
+                                title: Text('Apagar'),
+                                onTap: () {},
+                              ),
+                            ),
+                            PopupMenuItem(
+                              child: ListTile(
+                                contentPadding: EdgeInsets.zero,
+                                title: Text('Editar Marcação'),
+                              ),
+                            ),
+                            PopupMenuItem(
+                              child: ListTile(
+                                contentPadding: EdgeInsets.zero,
+                                title: Text('Editar Observação'),
+                              ),
+                            ),
+                          ],
                         ),
-                        decoration: BoxDecoration(
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      title: Container(
+                        height: 100,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Row(
+                                  key: Key(index.toString()),
+                                  children: [
+                                    Text(
+                                      '${DateTime.now().hour}:00 - ',
+                                    ),
+                                    Icon(
+                                      Icons.query_builder_sharp,
+                                      size: 16,
+                                    ),
+                                    Text(' 60min'),
+                                  ],
+                                ),
+                              ),
+                              Text(
+                                'Quéle Rodrigues',
+                                style: TextStyle(
+                                  color: Global.text_primary_color,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Container(
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      height: 20,
+                                      width: 67,
+                                      alignment: Alignment.center,
+                                      child: Text('Corporal'),
+                                      decoration: BoxDecoration(
+                                        color: Global.procedure_color_corporal,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      'Massagem Modeladora',
+                                      style: TextStyle(
+                                        color: Global.text_secundary_color,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Container(
+                                child: Text(
+                                  'Observação: A cliente pediu para confirmar 1 dia antes do atendimento.',
+                                  style: TextStyle(
+                                    color: Global.text_secundary_color,
+                                    fontSize: 14,
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        child: ListTile(
-                          onTap: () => print('${value[index]}'),
-                          title: Text('${value[index]}'),
-                        ),
-                      );
-                    }),
-              );
-            },
-          ))
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );

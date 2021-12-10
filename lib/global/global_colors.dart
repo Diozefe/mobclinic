@@ -9,6 +9,9 @@ class Global {
   static const Color text_primary_color = const Color(0xff333333);
   static const Color text_secundary_color = const Color(0xff4F4F4F);
   static const Color text_white_color = const Color(0xffffffff);
+  static const Color status_card_pending = const Color(0xffF2C94C);
+  static const Color card_pending = const Color(0xffFFF9E5);
+  static const Color procedure_color_corporal = const Color(0xffFFD6B8);
   static const Color white = const Color(0xffffffff);
   static const Color green = const Color(0xff27AE60);
   static const Color lightBlue = const Color(0xff47AFFF);
